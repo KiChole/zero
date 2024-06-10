@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ki Chole? Discover Bangladesh</title>
+<meta name="description" content="Ki Chole? Find your next experience, Discover Bangladesh. Follow us to know what's happening near you. The Ultimate Local Discovery Platform.">
+<meta name="keywords" content="Ki Chole, Discover Bangladesh, Local Events, Travel, Experience, Bangladesh, Ticketting">
+<meta property="og:title" content="Ki Chole? Discover Bangladesh"/>
+<meta property="og:description" content="Find your next experience, Discover Bangladesh. Follow us to know what's happening near you. The Ultimate Local Discovery Platform."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="http://www.kichole.com/"/>
+<meta property="og:image" content="URL_TO_AN_IMAGE_LOGO_OR_RELEVANT_IMAGE"/>
+<link rel="icon" href="https://pub-b2ed43e7429b402da031bff3573dc9e1.r2.dev/favicon.ico" type="image/x-icon">
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    body {
+        margin: 0;
+        background-color: black;
+        height: 100vh;
+        overflow: hidden;
+        cursor: pointer; /* Make cursor appear as a pointer over the entire body */
+    }
+
+    video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        background-size: cover;
+        pointer-events: none; /* Prevent interaction with the video */
+    }
+
+    .social-icons {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 25px;
+        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.7); /* Translucent white background */
+        padding: 10px 20px;
+        border-radius: 25px;
+    }
+
+    .social-icons a {
+        color: black; /* Black icons */
+        font-size: 32px; /* Increased the font size for larger icons */
+        text-decoration: none;
+        transition: transform 0.2s;
+    }
+
+    .social-icons a:hover {
+        transform: scale(1.2);
+    }
+</style>
+
+<script>
+    // Function to dynamically load the video based on the orientation
+    function loadVideo() {
+        var videoElement = document.querySelector('video');
+        var currentSource = videoElement.src;
+        var newSource = window.innerHeight > window.innerWidth ?
+                        'https://pub-b2ed43e7429b402da031bff3573dc9e1.r2.dev/bg-logo.mp4' :
+                        'https://pub-b2ed43e7429b402da031bff3573dc9e1.r2.dev/bg.mp4';
+
+        if (currentSource !== newSource) {
+            videoElement.src = newSource;
+            videoElement.load();
+            videoElement.play();
+        }
+    }
+
+    // Function to rotate icons based on device orientation
+    function rotateIcons(event) {
+        var icons = document.querySelectorAll('.social-icons a');
+        var rotation = event.alpha;
+        icons.forEach(function(icon) {
+            icon.style.transform = 'rotate(' + rotation + 'deg)';
+        });
+    }
+
+    window.addEventListener('load', loadVideo);
+    window.addEventListener('resize', loadVideo);
+    window.addEventListener('deviceorientation', rotateIcons);
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // Disable right-click context menu
+        });
+    });
+</script>
+</head>
+<body>
+<video autoplay loop muted playsinline>
+    Your browser does not support the video tag.
+</video>
+
+<div class="social-icons">
+    <a href="https://www.instagram.com/ki.chole/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/ki.cholebangladesh" target="_blank"><i class="fab fa-facebook-f"></i></a>
+</div>
+
+</body>
+</html>
